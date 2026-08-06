@@ -1,6 +1,6 @@
 ---
 name: seo
-description: "Complete SEO, AEO (answer-engine optimization), and GEO (generative-engine optimization) methodology — keyword research, competitor gap analysis, technical SEO audits, Core Web Vitals, AI-citation optimization, internal linking, root-cause analysis for ranking/traffic drops, local/e-commerce/international SEO, and Schema.org markup. Use when the user says audit my site, why isn't this page ranking, do keyword research, find competitor gaps, fix indexing, improve Core Web Vitals, get cited by AI answer engines, or optimize schema markup."
+description: "Complete SEO, AEO (answer-engine optimization), and GEO (generative-engine optimization) methodology — keyword research, competitor gap analysis, technical SEO audits, Core Web Vitals, AI-citation optimization, internal linking, root-cause analysis for ranking/traffic drops, local SEO/Google Business Profile, e-commerce SEO, international SEO/hreflang, and Schema.org structured data. Use when the user says audit my site, why isn't this page ranking, do keyword research, find competitor gaps, fix indexing, improve Core Web Vitals, get cited by AI answer engines, optimize local/GBP rankings, fix e-commerce category pages, set up hreflang, or validate schema markup."
 user-invocable: true
 license: MIT
 metadata:

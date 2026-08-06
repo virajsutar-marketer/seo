@@ -30,7 +30,7 @@ Restart Claude Code. The skill is discovered automatically via `SKILL.md` and in
 | File | What it's for |
 |---|---|
 | [`SKILL.md`](./SKILL.md) | The Claude Code Skill manifest — what triggers this skill and the process to follow. Start here if you're an agent. |
-| [`SEO-PLAYBOOK.md`](./SEO-PLAYBOOK.md) | The core 21-section operating manual: keyword research, competitor gap analysis, topical authority/pSEO, on-page standards, AEO/GEO fundamentals, E-E-A-T, internal linking, technical SEO (indexing, Core Web Vitals, CMS gotchas, consent, instant indexing), analytics hygiene, root-cause analysis, link building, program structuring, publishing QA, and AI-agent engagement discipline. |
+| [`SEO-PLAYBOOK.md`](./SEO-PLAYBOOK.md) | The core 25-section operating manual: keyword research, competitor gap analysis, topical authority/pSEO, on-page standards, AEO/GEO fundamentals, E-E-A-T, internal linking, technical SEO (indexing, Core Web Vitals, CMS gotchas, consent, instant indexing), analytics hygiene, root-cause analysis, link building, program structuring, publishing QA, AI-agent engagement discipline, local SEO/GBP, e-commerce SEO, international SEO/hreflang, and a Schema.org structured-data deep-dive. |
 | [`AEO-GEO-GUIDE.md`](./AEO-GEO-GUIDE.md) | A focused deep-dive on getting cited by AI answer engines — retrieval mechanics, machine-readability, content patterns that win citations, structured data, and a measurement framework for AI visibility. |
 | [`CHECKLISTS.md`](./CHECKLISTS.md) | Condensed, copy-pasteable pre-publish and audit checklists distilled from the two files above — use these for fast gates, use the playbooks for the reasoning behind each rule. |
 

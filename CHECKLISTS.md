@@ -66,3 +66,43 @@ Condensed, copy-pasteable checklists distilled from [`SEO-PLAYBOOK.md`](./SEO-PL
 - [ ] Within-page before/after comparison used where a clear change event exists, not just cross-page correlation
 - [ ] Findings labeled as confirmed / contributing-unproven / non-issue — not all lumped together
 - [ ] Report leads with the verdict, not the data trail
+
+## Local SEO checklist (physical/service-area businesses)
+
+- [ ] Every GBP field completed (categories, description, attributes, services, hours, photos per category)
+- [ ] NAP consistent across GBP, website, and every directory/citation
+- [ ] Local schema (`LocalBusiness`/subtype) matches the live GBP listing exactly
+- [ ] Every location/service-area has its own unique page — no generic shared "locations" list page
+- [ ] Geo-grid rank check run (multiple simulated points), not a single central-point check
+- [ ] Checked for duplicate/suspended GBP listings splitting review/relevance signal
+
+## E-commerce SEO checklist
+
+- [ ] Category pages have genuine unique content, not just a product grid
+- [ ] Faceted/filter URLs canonicalized or blocked to prevent duplicate-content sprawl
+- [ ] Product schema present with price/availability synced to real inventory in real time
+- [ ] Product descriptions are unique, not manufacturer boilerplate duplicated site-to-site
+- [ ] Out-of-stock pages kept live (not silently 404'd) unless permanently discontinued
+- [ ] Pagination indexing strategy chosen deliberately and applied consistently
+- [ ] Site-search result pages excluded from indexing
+
+## International SEO checklist
+
+- [ ] One URL structure (ccTLD / subdomain / subdirectory) used consistently sitewide
+- [ ] Every localized page has a complete, mutually-consistent hreflang set including self-reference
+- [ ] hreflang return-tag relationships verified bidirectional (A→B implies B→A)
+- [ ] `x-default` hreflang set for unmatched languages/regions
+- [ ] Canonical tags agree with hreflang (each genuine localization is its own canonical)
+- [ ] Machine-translated content reviewed by a native/fluent speaker before publishing
+- [ ] Keyword research redone per target market — not translated from the primary market's list
+- [ ] Page speed verified from within each target region, not just the primary market
+
+## Schema.org validation checklist
+
+- [ ] Structured-data lint/validation pass run after every schema change
+- [ ] All required fields present for every declared schema type — not just the easy ones
+- [ ] Datetime fields full ISO 8601 with timezone offset
+- [ ] Schema type genuinely matches the page's actual content — never applied purely to chase a rich result
+- [ ] Related entities cross-referenced by `@id` where they're the same real-world entity across blocks
+- [ ] Tested against the search engine's own structured-data validation tool, not only a generic linter
+- [ ] Rich-result appearance monitored over time, not just checked once at implementation

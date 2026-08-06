@@ -29,6 +29,10 @@
 19. [Publishing / QA Workflow Discipline](#19-publishing--qa-workflow-discipline)
 20. [Structural Conventions for Injectable Page Content](#20-structural-conventions-for-injectable-page-content)
 21. [Engagement Hygiene for an AI Agent Doing Ongoing SEO Work](#21-engagement-hygiene-for-an-ai-agent-doing-ongoing-seo-work)
+22. [Local SEO & Google Business Profile](#22-local-seo--google-business-profile)
+23. [E-Commerce SEO](#23-e-commerce-seo)
+24. [International SEO](#24-international-seo)
+25. [Schema.org / Structured Data Deep-Dive](#25-schemaorg--structured-data-deep-dive)
 
 ---
 
@@ -652,6 +656,113 @@ Every session should start by reading it. It should contain, in one place:
 
 - When a stakeholder narrows or corrects the scope of a request (e.g., "only show me X, excluding Y"), apply that scope literally and re-derive the deliverable rather than lightly editing the previous, broader version — a scope correction is a signal the previous framing was actually wrong for the decision being made, not merely a preference.
 - When in doubt about whether a finding belongs in scope, err toward a separate, clearly-labeled section rather than either silently including it or silently dropping it.
+
+---
+
+## 22. Local SEO & Google Business Profile
+
+Applies to any business with a physical location, a service area, or a "near me" search intent (brick-and-mortar, service-area businesses, multi-location chains).
+
+### 22.1 Google Business Profile (GBP) as the primary local ranking surface
+
+- Claim and fully complete every available GBP field — primary + secondary categories (the single most-weighted local ranking factor after proximity), business description, attributes, service list, products, opening hours (including holiday hours), and at least one photo set per category (exterior, interior, team, product/service in action). An incomplete profile competing against a fully-completed competitor profile loses on relevance signal alone, independent of website quality.
+- **NAP consistency (Name, Address, Phone) across every surface it appears** — the GBP listing, the website footer/contact page, and every third-party directory/citation — is a foundational local trust signal. A mismatched suite number, a phone number format inconsistency, or an old address left live on one directory after a move all dilute this signal. Audit NAP consistency as its own discrete task, not as a one-time setup step; it decays as the business moves, rebrands, or changes phone providers.
+- **Reviews are a ranking and conversion signal simultaneously** — volume, recency, average rating, and response rate to reviews (especially negative ones) all matter. A response to a negative review that's calm, specific, and non-defensive is itself a trust signal to future searchers reading the thread, not just damage control (this mirrors the negative-comment handling discipline in a social media context — never delete a legitimate negative review, respond to it).
+- **Local schema markup** (`LocalBusiness` or a more specific subtype, plus `PostalAddress`, `GeoCoordinates`, `OpeningHoursSpecification`) on the website should exactly match what's declared on the GBP listing — a discrepancy between structured data and the live GBP listing is a consistency red flag search engines can detect.
+
+### 22.2 On-site local relevance signals
+
+- A dedicated, unique page per physical location or service area for a multi-location business — never one generic "locations" page listing all cities in a bulleted list with no unique content per location. Each location page needs genuinely local-specific content (that location's team, that location's specific service area, local landmarks/neighborhoods served, location-specific reviews/testimonials) to avoid reading as a thin, templated doorway page (see the spam-policy guardrails in §8.4 — this is exactly the pSEO thin-content risk applied to local pages).
+- Embed a location-specific map and the exact NAP for that location on its own page, not just a central "contact us" page.
+- Build genuinely local backlinks/citations: local chamber of commerce, local news mentions, local business associations, sponsorships — these carry more local-relevance weight than generic, non-local backlinks.
+
+### 22.3 Local rank-tracking and audit methodology
+
+- **Geo-grid rank tracking** (checking ranking position from multiple simulated locations across a service area, not just one central point) is the correct methodology for local rank measurement — a single "where do we rank" check from company headquarters can look completely different from the same query run from a location 10 miles away, and a business with an uneven geo-grid (strong near the office, weak at the edges of its actual service area) has a real, actionable finding.
+- Apply the same **verify-before-trusting-a-single-source discipline from §2.2** to local rankings — a rank-tracking tool's cached position can be stale; spot-check with a live, geo-simulated search before reporting a local ranking claim.
+- Audit for **duplicate or suspended GBP listings** (a common failure mode after a rebrand, a move, or an agency creating a second listing by mistake) — a duplicate listing splits reviews and relevance signal across two profiles instead of consolidating it into one authoritative one; this is a real, own-goal ranking loss and should be checked before any other local optimization work.
+
+---
+
+## 23. E-Commerce SEO
+
+Applies to any site with a product catalog, category/collection pages, and a purchase flow.
+
+### 23.1 Category/collection page strategy
+
+- **Category pages are the primary SEO asset for e-commerce, not individual product pages**, for most non-branded, higher-volume commercial queries ("[category] for [use case]," "best [category] under [price]") — a searcher looking for a category of product is rarely searching for one specific SKU by name. Prioritize category-page depth and optimization before product-page optimization for non-branded traffic capture.
+- **Category pages need genuine, unique on-page content** (a real intro paragraph explaining the category, genuine buying-guide content, real FAQs specific to that category) beyond just a product grid — a category page that's purely a filtered product list with zero unique text is thin content and struggles to rank against a competitor's category page that has real editorial content around the grid.
+- **Faceted navigation / filter URL control is a critical, e-commerce-specific technical SEO problem**: filter combinations (color × size × price range, etc.) can generate an effectively unbounded number of near-duplicate, low-value URL variants that both waste crawl budget and create massive duplicate-content exposure. Use canonical tags pointing filtered variants back to the base category URL, and/or `robots.txt`/parameter-handling rules to prevent crawling of low-value filter combinations, while still allowing genuinely valuable, high-search-volume filter combinations (e.g., a specific, frequently-searched size or color) to be indexed as their own canonical page if real demand data supports it.
+
+### 23.2 Product page optimization
+
+- **Product schema (`Product` type with `Offer`, `AggregateRating`, `Review`)** is close to mandatory for e-commerce — it's what enables rich-result price/availability/rating display in search results, which meaningfully lifts CTR independent of ranking position. Keep price and availability fields in the structured data synced in real time with actual inventory/pricing systems — a rich result showing stale pricing or "in stock" for an out-of-stock item is a trust and conversion problem when the searcher clicks through and finds it wrong.
+- **Never publish a product page with purely manufacturer-supplied boilerplate description** duplicated verbatim across every retailer selling the same product — this is a textbook duplicate-content problem at internet scale (the same manufacturer copy appears on dozens of competing retail sites) and a real differentiation opportunity: a genuinely unique description, real customer-usable details (fit, sizing, real use-case guidance), and real photos/video of the actual product (not just the manufacturer's stock imagery) both avoid the duplicate-content problem and out-compete other retailers running the boilerplate unchanged.
+- **Out-of-stock and discontinued product handling** is a recurring e-commerce technical SEO problem: never let an out-of-stock page silently 404 or disappear if it has real accumulated ranking/backlink equity — keep it live with clear "out of stock" messaging and either a restock-notification signup or genuine alternative-product recommendations, and only fully remove/redirect a product URL once it's confirmed permanently discontinued (redirect to the closest current equivalent product or the parent category, per the redirect-target priority logic in §10.6).
+- **Reviews and user-generated content** (real customer photos, Q&A sections) on product pages are both a conversion-rate lever and a fresh, unique-content lever that manufacturer boilerplate can't replicate — never fabricate or seed fake reviews (this is both a platform-policy violation on most review systems and a straightforward trust violation).
+
+### 23.3 E-commerce-specific technical and structural issues
+
+- **Pagination on category pages** (page 2, 3, 4 of a product listing) needs a clear indexing strategy — either self-canonical each paginated page (allowing each to be indexed independently, appropriate when each page's product set could plausibly match distinct long-tail queries) or canonical all pages back to page 1 (appropriate when deep pagination pages have little independent search value) — pick one strategy deliberately and apply it consistently, rather than leaving pagination indexing to default/inconsistent behavior.
+- **Site search result pages should generally be excluded from indexing** (`noindex` or blocked in `robots.txt`) — internal site-search URLs indexed as if they were real category pages create thin, low-quality, often near-duplicate pages at scale, and are a common unintentional source of the crawl-budget pollution described in §10.3.
+- **Marketplace/feed-based structured data** (for sites also syndicating products to third-party marketplaces or shopping feeds) must stay in sync with on-site structured data — divergent pricing, availability, or product identifiers between the on-site schema and the syndicated feed is a data-integrity problem that can trigger platform-level penalties on the marketplace side, independent of organic SEO impact.
+- **Seasonal/limited-time product pages** should follow the same never-let-good-equity-404 discipline as discontinued products (§23.2) — a recurring seasonal category (e.g., "holiday gift guide 2025") that gets deleted and rebuilt from scratch every year loses all accumulated ranking signal; prefer updating the same evergreen URL in place year over year over creating a new dated URL each cycle, unless there's a genuine reason the content must be a permanent historical snapshot.
+
+---
+
+## 24. International SEO
+
+Applies to any site serving more than one country, region, or language.
+
+### 24.1 URL structure for international/multilingual content
+
+Pick one structure deliberately and apply it consistently — don't mix approaches across the site:
+- **Country-code top-level domains** (`example.de`, `example.fr`) — the strongest geo-targeting signal, but the highest operational overhead (separate domain authority to build per market, separate hosting/DNS to manage).
+- **Subdomains** (`de.example.com`) — moderate geo-targeting signal, easier to manage than separate ccTLDs, but subdomains can be treated as semi-independent properties by some analytics/SEO tooling, which needs to be accounted for in reporting.
+- **Subdirectories** (`example.com/de/`) — the most common practical choice for most sites: consolidates domain authority into one property, simplest to maintain, and the standard recommendation when there isn't a strong specific reason to fragment authority across ccTLDs or subdomains.
+
+### 24.2 hreflang implementation
+
+- **`hreflang` annotations tell search engines which language/region variant of a page to serve to which searcher** — every localized version of a page needs a complete, mutually-consistent set of hreflang tags referencing every other language/region variant of that same page, including a self-referencing tag (a page must reference itself in its own hreflang set, not just the other variants).
+- **The most common, highest-impact hreflang bug is an asymmetric/broken return-tag relationship**: if page A declares an hreflang relationship to page B, page B must declare the matching relationship back to page A — a one-directional hreflang reference is invalid and gets ignored by search engines, silently defeating the entire implementation. Audit hreflang as a graph, not a per-page checklist item — a broken link anywhere in the graph can undermine the whole set for that page cluster.
+- Use a generic, catch-all `x-default` hreflang value to specify which version to serve to a searcher whose language/region doesn't match any of the explicitly declared variants (commonly the primary-market version, or a genuine international/language-selector landing page).
+- Hreflang and canonical tags must agree — a page's canonical tag should point to itself (each localized variant is its own canonical, distinct page), not to one "master" version, when the pages are genuinely localized (different language, meaningfully adapted content) rather than pure duplicates.
+
+### 24.3 Content localization quality (not just translation)
+
+- **Machine-translated content with zero human review is a real quality and trust risk**, not just a nice-to-have polish step — literal/awkward machine translation is detectable by both users and (increasingly) by content-quality systems, and reads as low-effort/low-trust in exactly the way generic AI-templated content does in §8.4's scaled-content-abuse guardrail. At minimum, have a native or fluent speaker review machine-translated output before publishing, especially for any commercial/high-intent page.
+- **Localization is not just translation** — currency, units of measurement, date formats, cultural references/idioms, region-specific proof points (local customer logos/testimonials, region-specific compliance/certifications, local payment methods and shipping/return policy details) all need genuine adaptation per market, not a literal word-for-word translation of the primary-market version.
+- **Keyword research must be redone per target language/market, not translated from the primary market's keyword list** — the same underlying concept can have a completely different search-volume distribution, different exact phrasing, and even a different primary search intent across languages/markets; a keyword list translated word-for-word from English frequently misses the actual phrasing real searchers in that market use.
+
+### 24.4 International technical and legal considerations
+
+- **Server location and CDN configuration affect perceived page speed per region** — a site hosted in one region with no CDN/edge presence will show materially worse Core Web Vitals for users physically far from that server; verify performance from within each target market, not just from the primary market.
+- **Region-specific legal/compliance requirements** (cookie-consent law variations, data-residency requirements, region-specific accessibility law) need to be checked per target market before launch — a consent-banner implementation that satisfies one jurisdiction's law may not satisfy another's, and this is a legal-compliance question independent of and in addition to the technical consent-tooling audit in §13.
+- **Currency and payment method localization** is both a conversion-rate and a trust signal for e-commerce specifically — displaying prices in a foreign currency with no local-currency option, or offering only payment methods uncommon in that market, depresses conversion even when the organic ranking work is otherwise successful.
+
+---
+
+## 25. Schema.org / Structured Data Deep-Dive
+
+Structured data is referenced throughout this playbook (§6.3 on-page requirements, §7.5 AEO schema, §22 local, §23 e-commerce) — this section consolidates the cross-cutting discipline.
+
+### 25.1 Validation and maintenance discipline
+
+- **Run a structured-data lint/validation pass after every schema change, and periodically even without a known change** — schema can silently break from an unrelated site update (a theme update, a plugin update, a migration) without anyone noticing until a rich-result feature disappears from search results weeks later. Treat structured-data validation as a recurring health check, not a one-time implementation step.
+- **A schema type declared but missing its required fields is often worse than no schema at all** — an incomplete or invalid schema block can cause a search engine to distrust or ignore all structured data on that page, not just the broken block. Validate the complete required-field set for every schema type in use, not just the fields that happen to populate easily.
+- **Datetime fields need full ISO 8601 format with a timezone offset** (restated from §6.3 because it's the single most common schema validation failure across every content type) — a bare date with no time/timezone component reliably trips validation warnings.
+- **Nested/related schema types should cross-reference by `@id`** where the underlying entities are genuinely the same real-world thing across multiple schema blocks on a site (e.g., the same `Organization` referenced from `Article` author schema and from a `LocalBusiness` block) — this creates an explicit entity graph rather than several disconnected, duplicated declarations of the same entity, and is a stronger signal for entity disambiguation (the same principle as the AEO/GEO entity-consistency guidance in §7.3/§7.5, applied at the structured-data layer specifically).
+
+### 25.2 Choosing the right schema type
+
+- **Match the schema type to the actual content type genuinely present on the page** — don't apply `Product` schema to a page that isn't actually selling a product, or `Review` schema to a page that isn't a genuine third-party review, purely to try to earn a rich-result appearance. Mismatched/manipulative schema is both a spam-policy risk (misleading structured data is explicitly against most search engines' structured-data guidelines) and, per §25.1, a risk to the credibility of a site's other genuine schema.
+- **Common schema types and their fit**: `Article`/`BlogPosting` for editorial content, `Product`/`Offer`/`AggregateRating` for e-commerce, `LocalBusiness` (or subtype) for physical/service locations, `FAQPage` for genuine FAQ sections, `HowTo` for genuine step-by-step instructional content, `VideoObject` for video content (with a real, reachable thumbnail — a common validation failure per §6.3), `Event` for real scheduled events, `JobPosting` for real open roles, `Review`/`Recipe`/`Course` for their respective genuine content types.
+- **One dominant schema type per page, supporting types layered underneath** — a page can legitimately have `Article` schema as its primary type plus a nested `FAQPage` for an FAQ section within it, but shouldn't declare multiple competing primary types for the same page's core content.
+
+### 25.3 Testing and monitoring
+
+- Test new schema against the search engine's own structured-data testing/validation tool before publishing, not just a generic third-party JSON-LD linter — search engines periodically add support for new properties or deprecate old ones, and only the platform's own tool reflects current requirements accurately.
+- Monitor rich-result appearance in search-console-style tooling over time, not just at initial implementation — a rich result that was appearing can silently stop appearing due to a schema regression, a policy change, or a manual/algorithmic quality action, and this is a distinct, worth-tracking metric separate from ranking position or click volume.
 
 ---
 
