@@ -130,3 +130,6 @@ Every recommendation in this skill is meant to be **falsifiable, not promotional
 - `SEO-PLAYBOOK.md`, core 25-section methodology
 - `AEO-GEO-GUIDE.md`, AI-citation deep dive
 - `CHECKLISTS.md`, condensed pre-publish/audit checklists
+- `skills/`, 8 focused sub-skills (`keyword-research`, `technical-seo-audit`, `aeo-geo-citations`, `local-seo-gbp`, `ecommerce-seo`, `international-seo-hreflang`, `schema-structured-data`, `ranking-rca`), each a narrower, deeper slice of one playbook cluster with its own process, checklist, and deliverable format
+- `memory/`, dated research notes on real, current SEO/AEO/GEO findings, each with a cited real source; see `memory/INDEX.md`
+- `agents/`, 4 specialist Claude Code subagent definitions (`technical-seo-auditor`, `keyword-researcher`, `aeo-geo-specialist`, `ranking-rca-investigator`), each grounded in the matching playbook sections and sub-skill
